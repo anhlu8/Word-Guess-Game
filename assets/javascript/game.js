@@ -1,17 +1,10 @@
-var rand = 0;
-var word = "";
 var phrase = ["appletini", "bud light", "cryptocurrency & blockchain", "dwarves", "zombie apocalypse"];
+var rand = Math.floor(Math.random()*phrase.length);
+var word = phrase[rand];
 var win = 0;
 var phraseLength = 0;
 var maxErrors = 15;
 var underScore = [];
-
-
-function getPhrase (){
-    rand = Math.floor(Math.random()*phrase.length);
-    word = phrase[rand];
-    return word;
-};
 
 var generateUnderscore = function () {
     for(var i=0; i<word.length; i++){
@@ -20,9 +13,7 @@ var generateUnderscore = function () {
     return underScore;
 };
 
-var keyword = document.addEventListener('keyup', function(event) {
-    console.log(event);
-    if (word.indexOf(keyword) > -1){
-    };
-});
 
+document.addEventListener('keyup', function(event){
+    document.getElementById("currentWord").textContent = generateUnderscore;
+})
