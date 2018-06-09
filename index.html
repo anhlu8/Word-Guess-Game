@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Word Guess Game</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="banner">
@@ -14,7 +15,7 @@
     <main class = "container">
         <div class="maincontent">
             <p id="startKey">Press any key to get started!</p>
-            <p id="result">Wins</p>
+            <p id="result">Wins <span id = "wins"></span></p>
             <p>Current word: <span id="currentWord"></span></p>
             <p> There are <span id = "numLetters">0</span> letters in this Word.</p>
         </div>
@@ -104,6 +105,7 @@
         <div class="maincontent">
             <p> Letters already guessed</p>
         </div>
+        <button id="Reset-button">Reset</button>
     </main>
 
 
