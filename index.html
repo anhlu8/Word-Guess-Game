@@ -17,7 +17,7 @@
             <p id="startKey">Press any key to get started!</p>
             <p id="result">Wins <span id = "wins"></span></p>
             <p>Current word: <span id="currentWord"></span></p>
-            <p> There are <span id = "numLetters">0</span> letters in this Word.</p>
+            <p> There are <span id = "numLetters"></span> letters in this Word.</p>
         </div>
 
         <!-- <div id="wordWrap">
@@ -103,9 +103,9 @@
         </div>
 
         <div class="maincontent">
-            <p> Letters already guessed</p>
+            <p> Letters already guessed <span id="alreadyGuessed"></span></p>
         </div>
-        <button id="Reset-button">Reset</button>
+        <button onclick="reset()" id ="resetButton">New Word</button>
     </main>
 
 

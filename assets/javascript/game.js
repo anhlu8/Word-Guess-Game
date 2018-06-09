@@ -3,17 +3,21 @@ var phrase = ["appletini", "coding", "javascript"];
 var underScore = [];
 var correctGuess = [];
 var incorrectGuess = [];
-var guessesRemaining = 10;
+var guessesRemaining = 13;
 var wins = 0;
 var wonTheRound = false;
-
+var keyWordArray = [];
+var numberOfLetters = document.getElementById('numLetters').innerHTML;
 
 
 var generateWord = function(){
     rand = Math.floor(Math.random()*phrase.length);
     word = phrase[rand];
+    document.getElementById('numLetters').innerHTML = word.length;
 }
 generateWord();
+
+
 console.log(word);
 // To create underscores
 var generateUnderscore = function () {
@@ -23,17 +27,7 @@ var generateUnderscore = function () {
     return underScore;
 };
 
-var reset = function(){
-    guessesRemaining = 10;
-    generateWord();
-    underScore = [];
-    correctGuess = [];
-    incorrectGuess = [];
-    generateUnderscore();
-    wonTheRound = false;
-}
 
-// Run function Reset
 
 // To display underscores
 document.addEventListener('keyup', function(event){
@@ -53,7 +47,7 @@ document.addEventListener('keyup', function(event){
 
 document.addEventListener('keydown', function(event){
     var keyWord = String.fromCharCode(event.keyCode)
-
+    keyWordArray.push(keyWord);
     if (wonTheRound === false){
     guessesRemaining--};
 
@@ -63,13 +57,30 @@ document.addEventListener('keydown', function(event){
         // correctGuess.push(keyWord);
         underScore[i] = keyWord;
     }
-    
+    document.getElementById("alreadyGuessed").innerHTML = keyWordArray.join(' ');
     
     } 
     
     // else {
     //     incorrectGuess.push(keyWord);
     // }
+    
+    // Run function Reset
+    var reset = function(){
+        guessesRemaining = 13;
+        generateWord();
+        underScore = [];
+        correctGuess = [];
+        incorrectGuess = [];
+        generateUnderscore();
+        wonTheRound = false;
+        keyWordArray = [];
+        $("span:not(#wins, #numLetters)").empty();
+    }
+
+document.getElementById('resetButton').addEventListener('click', function(){
+    reset();
+})
 })
 
 
